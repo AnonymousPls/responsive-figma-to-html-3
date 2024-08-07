@@ -1,14 +1,21 @@
 /* PC */
 @media (min-width: 992px) {
   /* Tối thiểu là 992px (>= 992) thì áp dụng style này */
+  .mobile-header {
+    display: none;
+  }
 }
 /* Tablet & Mobile */
 @media (max-width: 991.98px) {
   /* Tối thiểu là 992px (< 992) thì áp dụng style này */
+
+  /* =================== Code cho menu-overlay  ===================*/
+
   .navbar {
     display: none;
   }
   /* 1. Ẩn nav bar trên Tablet & Mobile  */
+
   .header-top {
     position: relative;
   }
@@ -23,6 +30,7 @@
     /* Kết quả là logo chạy vào giữa .header-top và căn giữa */
   }
   /* 2. Chuyển logo vào giữa */
+
   .menu-header__icon {
     /* height: 16px; */
     width: 24px;
@@ -36,6 +44,7 @@
     color: #fff;
     /* Đổi màu .menu-header__icon, lúc này cần thêm <path fill="currentColor"> vào <path> index.html */
   }
+
   .menu-overlay {
     position: fixed;
     /* background-color: blue; */
@@ -51,12 +60,58 @@
     transition: 0.5s;
   }
   /* 4. Overlay */
+
   .menu-checkbox:checked ~ .menu-overlay {
     opacity: 1;
     visibility: visible;
   }
-  /* Kiểm tra nếu checkbox được check thì hiện overlay */
+  /* 5. Kiểm tra nếu checkbox được check thì hiện overlay */
+
+  /* =================== Code cho menu-drawer  ===================*/
+
+  .menu-drawer {
+    position: fixed;
+    background-color: #2e1919;
+    inset: 0 40% 0 0;
+    z-index: 2;
+    /* Trên cả lớp phủ */
+    transform: translateX(-100%);
+    transition: 0.5s;
+    padding: 60px;
+  }
+
+  .menu-checkbox:checked ~ .menu-drawer {
+    transform: translateX(0);
+  }
+
+  /* Menu Top */
+
+  .close__menu {
+    width: 24px;
+    color: white;
+  }
+  .menu-drawer__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar__list {
+    margin-top: 25px;
+    flex-direction: column;
+  }
+  #navbar__list--mobile {
+    margin-top: 25px;
+  }
+  .navbar__link {
+    display: block;
+    text-align: left;
+    font-size: 2rem;
+  }
+  .navbar__link:hover {
+    background-color: #00ffff37;
+  }
 }
+
 /* Tablet */
 @media (max-width: 991.98px) and (min-width: 768px) {
   /* Tối thiểu là 992px (>= 768 và < 992) thì áp dụng style này */
