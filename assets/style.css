@@ -493,7 +493,7 @@ a {
   display: block;
   /*  Hoặc display: flex; xử lí phần bị thừa của thẻ inline ở đây là thẻ img */
   transition: 0.5s;
-  /* .team-item:hover .team-item__thumb {transform: scale(1.1);} */
+  /* Do .team-item:hover .team-item__thumb {transform: scale(1.1);} nên cần transition */
 }
 
 .team-item__img-bg {
