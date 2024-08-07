@@ -1,0 +1,902 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --header-bg: #10375c;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* Khôi phục lại cỡ chữ mặc định theo rem */
+body {
+  font-size: 1.6rem;
+  font-family: "Sora", sans-serif;
+}
+
+/* =================== Common  ===================*/
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+/* Lúc này .footer-form__submit sẽ có thể kế thừa font từ cha nó là .footer . Nếu không khai báo inherit nó sẽ có font là Ariel */
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+  /* Căn giữa khối .container có kích thước 1170px */
+  max-width: calc(100% - 48px);
+  /* Tối ưu web. Cách lề 24px mỗi bên khi trình duyệt web bị thu nhỏ (co) lại */
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  display: inline-block;
+  /* Cho phép nhận kích thước do thẻ a có display: inline;  */
+  min-width: 205px;
+  line-height: 60px;
+  /* Lưu ý không dùng width và height */
+
+  border-radius: 30px;
+  background: #2e80ce;
+
+  color: #fff;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 400;
+  /* line-height: 1.67; */
+  /* Bỏ để tăng kích thước box button (Đã set lại ở trên line-height: 60px;) */
+  /* 166.667% */
+  /* Lúc này color và line-height bị ghi đè vì ta đã code cho class chung .action__btn ở bên dưới => Bắt buộc đổi tên class cho 2 nút Log In .action__login (có thuộc tính giống .navbar__link)và Sign Up .action__signup */
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.section-heading {
+  color: #10375c;
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  /* 120% */
+  letter-spacing: -1px;
+}
+
+.section-desc {
+  margin-top: 18px;
+  color: #575f66;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.67;
+  /* 166.667% */
+}
+
+.control {
+  display: flex;
+  column-gap: 18px;
+  align-items: center;
+}
+/* Control Button cha */
+
+.control__btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #575f66;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  cursor: pointer;
+  transition: 0.25s;
+}
+/* Control Button con */
+
+.control__btn:hover {
+  background: #2e80ce;
+  border-color: #2e80ce;
+  color: #fff;
+}
+/* =================== Header  ===================*/
+
+.header {
+  background: var(--header-bg);
+  min-height: 110vh;
+  /* min-height = 100% khung nhìn có tác dụng làm background phủ kín khung nhìn như thiết kế (không phải là phủ toàn bộ trang web) */
+  padding-top: 30px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__list {
+  display: flex;
+  /* gap: 42px; */
+}
+
+.header__action--login,
+.navbar__link {
+  color: #c9d2da;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.75;
+  /* 175% */
+  padding: 8px 21px;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #fff;
+  /* font-weight: 400; */
+  text-shadow: 1px 0 0 currentColor;
+  /* Thay font weight bằng text shadow để khi trỏ vào các item xung quanh khác không bị giật giật */
+}
+
+.navbar__link--active::before {
+  content: "";
+  display: inline-block;
+  /* Cho phép nhận kích thước */
+  /* mặc định ::before có display là inline, mà inline thì không set kích thước được nên phải chuyển sang block hoặc inline-block. Nhưng block thì nó xuống hàng nên dùng inline-block */
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+
+  position: relative;
+  top: -3px;
+  right: 8px;
+  /* Hoặc dùng transform: translate(-8px, -50%) để thay thế*/
+}
+
+.header__action--signup {
+  min-width: 104px;
+  line-height: 44px;
+  font-size: 1.6rem;
+}
+
+.header__action--login {
+  margin-right: 7px;
+}
+
+/* =================== Hero  ===================*/
+
+.hero {
+  display: flex;
+  padding-top: 76px;
+  align-items: center;
+}
+
+.hero__content {
+  width: 44%;
+}
+
+.hero__media {
+  flex: 1;
+  /* Chiếm hết khoảng không gian còn lại */
+  /* width: 56%; */
+}
+
+.hero__heading {
+  color: #fff;
+  font-size: 7rem;
+  font-weight: 600;
+  line-height: 1.14x;
+  /* 114.286% */
+  letter-spacing: -1.4px;
+}
+
+.hero__desc {
+  color: #c9d2da;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.67;
+  /* 166.667% */
+
+  margin-top: 22px;
+}
+
+.hero__row {
+  margin-top: 38px;
+  display: flex;
+  /* Loại bỏ khoảng cách giữa 2 thẻ con là thẻ a và span */
+  align-items: center;
+  column-gap: 38px;
+}
+
+.hero_phone {
+  color: #fff;
+  text-align: center;
+  font-size: 1.8rem;
+  line-height: 1.67;
+  /* 166.667% */
+}
+
+.hero__image {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.hero__img {
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.hero__img--large {
+  width: 330px;
+  height: 540px;
+  margin-right: -6px;
+  z-index: 1;
+}
+
+.hero__img--small {
+  width: 210px;
+  height: 410px;
+}
+
+/* =================== Main ===================*/
+
+/* =================== Our Service ===================*/
+
+.service {
+  padding: 170px 0;
+}
+
+/* .service-item__icon {
+    background-color: blue;
+  } */
+
+.service__heading,
+.service__desc {
+  text-align: center;
+}
+
+.service__desc {
+  width: 468px;
+  /* .service__desc không còn được căn giữa nữa do giới hạn độ rộng và thẻ p là thẻ block có đặc điểm chiếm hết chiều ngang của box chứa nó */
+  /* => Dùng margin: 0 auto; */
+  margin: 0 auto;
+  /* .section-desc {margin-top: 18px;} bị vô hiệu hóa => Sai */
+  margin: 18px auto 0;
+  /* Sửa lại */
+}
+
+.service__row {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service__img {
+  width: 570px;
+  height: 570px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.service-item {
+  display: flex;
+  width: 470px;
+  padding: 21px;
+  border-radius: 10px;
+  background: #fff;
+  transition: 0.25s;
+}
+
+.service-item:hover {
+  box-shadow: 0px 14px 28px 0px rgba(0, 0, 0, 0.05);
+  /* Bóng bị che bởi item đằng sau => Dùng position: relative; đưa item ra khỏi mặt phẳng hiện tại lên một mặt phẳng cao hơn */
+  position: relative;
+}
+
+.service-item:hover .service-item__icon {
+  color: #ffffff;
+  background-color: #2e80ce;
+}
+
+.service-item__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background: #eff6fd;
+  box-shadow: 0px 8px 16px 0px rgba(40, 155, 222, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  /* Chữa méo hình tròn bao xung quanh teeth */
+  margin-right: 19px;
+  transition: 0.25s;
+}
+
+.service-item__heading {
+  color: #10375c;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.service-item__desc {
+  margin-top: 8px;
+  color: #575f66;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.75;
+  /* 175% */
+}
+
+.service__btn {
+  margin-top: 55px;
+}
+
+/* =================== How it works ===================*/
+
+.work {
+  background: #f6fbff;
+  padding: 100px 0;
+}
+
+.work__desc {
+  width: 468px;
+}
+
+.work__list {
+  margin-top: 86px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+}
+
+.work-item {
+  padding: 43px;
+  border-radius: 4px;
+  background: #fff;
+  border: 16px solid #eaf6ff;
+  transition: 0.25s;
+}
+
+.work-item:hover {
+  border-color: #2e80ce;
+  /* Nhớ thêm transition: 0.25s; ở .work-item */
+  transform: translateY(-16px);
+}
+
+.work-item__heading {
+  margin-top: 18px;
+  color: #10375c;
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1.38;
+  /* 138.462% */
+}
+
+.work-item__desc {
+  margin-top: 28px;
+  color: #575f66;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.75;
+  /* 175% */
+}
+
+.work-item__more {
+  margin-top: 18px;
+  /* a là thẻ inline, padding/margin-top và padding/margin-bottom bị vô hiệu hóa => inline-block */
+  display: inline-block;
+  color: #2e80ce;
+  font-size: 1.6rem;
+  line-height: 1.75;
+  /* 175% */
+}
+
+/* =================== About ===================*/
+
+.about {
+  /* padding: 170px 0; */
+  /* Phần padding lúc này sẽ dính sát vào khối bên dưới => Dùng padding: 85px 0; + margin-top: 85px; Khối sau (dưới) cũng sẽ set padding: 85px 0;*/
+  /* padding: 85px 0; */
+  /* Do .about__img--small có position: absolute; nền cần điều chỉnh lại padding-bottom. Khối sau (dưới) lúc này cũng vẫn sẽ set padding: 85px 0;*/
+  padding: 85px 0 206px;
+  margin-top: 85px;
+  /* background-color: yellow; */
+}
+
+.about__img {
+  position: relative;
+}
+
+.about__img--large {
+  width: 512px;
+  height: 370px;
+  border-radius: 6px;
+  box-shadow: 0px 14px 28px 0px rgba(0, 0, 0, 0.07);
+  object-fit: cover;
+  display: flex;
+  /* Xử lí phần dư ra phía dưới của thẻ inline ở đây là thẻ img */
+}
+.about__img--small {
+  width: 332px;
+  height: 370px;
+  border-radius: 6px;
+  object-fit: cover;
+  position: absolute;
+  top: 121px;
+  left: 238px;
+}
+
+.about-row {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.about__media {
+  width: 49%;
+  /* (512+58)/1170 */
+}
+
+.about-content {
+  width: 51%;
+  /* Hoặc dùng flex: 1 để khối chiếm hết phần còn lại */
+  /* flex: 1; */
+  width: 40%;
+  /* 470/1170, do thiết kế nên ta set width lại theo thiết kế nếu không thì hiển thị khối bên phải sẽ bị sai */
+  margin-top: 82px;
+}
+
+.about-content__btn {
+  margin-top: 38px;
+}
+
+/* =================== Our Team =================== */
+
+.team {
+  padding: 85px 0;
+}
+
+.team-header {
+  text-align: center;
+  margin: 0 auto;
+  /* Căn giữa text của khối .team-header và căn giữa khối .team-header */
+}
+
+.team__cta {
+  margin-top: 38px;
+}
+
+.team__list {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 34px;
+}
+
+.team-item__thumb {
+  height: 290px;
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+  /*  Hoặc display: flex; xử lí phần bị thừa của thẻ inline ở đây là thẻ img */
+  transition: 0.5s;
+  /* .team-item:hover .team-item__thumb {transform: scale(1.1);} */
+}
+
+.team-item__img-bg {
+  background-color: #eaf6ff;
+  border-radius: 6px;
+  padding-top: 28px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.team-item__name {
+  margin-top: 12px;
+  color: #10375c;
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.75;
+  /* 175% */
+}
+
+.team-item__desc {
+  color: #575f66;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.86;
+  /* 185.714% */
+}
+
+.team-item:hover .team-item__thumb {
+  transform: scale(1.1);
+}
+
+.team__control {
+  margin-top: 38px;
+  justify-content: center;
+}
+
+.control-icon--next {
+  rotate: 180deg;
+}
+
+/* =================== Install Mobile =================== */
+
+.install {
+  margin: 180px 0 85px;
+  /* 265-85 = 180 */
+  /* Phần margin-bottom: 85px sẽ không hiện thị khi bật pesticide extension do không còn phần tử nào ở bên dưới khối hiện tại. 
+  Nếu thêm vào một phần tử hoặc một khối bên dưới khối hiện tại nó (margin-bottom) sẽ xuất hiện bình thường */
+}
+
+.install__inner {
+  height: 427px;
+  border-radius: 4px;
+  background: #2e80ce;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 70px;
+  position: relative;
+}
+
+.install__img {
+  width: 284px;
+  height: 522px;
+  object-fit: cover;
+  position: absolute;
+  bottom: 0;
+  border-radius: 50px 50px 0 0;
+}
+
+.install__content {
+  max-width: 586px;
+}
+
+.install__heading {
+  max-width: 489px;
+  color: #fff;
+}
+
+.install__desc {
+  margin-top: 18px;
+  max-width: 586px;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.67;
+  /* 166.667% */
+}
+.install__row {
+  margin-top: 38px;
+  display: flex;
+  column-gap: 28px;
+  align-items: center;
+}
+
+/* =================== Blog  ===================*/
+
+.blog {
+  padding: 85px;
+}
+
+.blog__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blog__content {
+  width: 40%;
+}
+
+/* .blog__list {
+  width: 49%;
+} */
+
+.blog__heading {
+  max-width: 470px;
+}
+
+.blog__more {
+  margin-top: 28px;
+  display: inline-block;
+  /* Do thẻ a là thẻ inline => margin-top bị vô hiệu hóa => display phải khác inline */
+  color: #10375c;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.56;
+  /* 155.556% */
+  text-decoration-line: underline;
+  text-underline-offset: 5px;
+  /* Điều chỉnh gạch chân đi xuống và dài ra cho giống thiết kế */
+}
+
+.blog__control {
+  margin-top: 28px;
+  justify-content: flex-start;
+  /* Cho 2 thẻ button sang trái */
+}
+
+.blog__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 30px;
+}
+
+.blog-item {
+  width: 270px;
+  /* height: 375px; */
+  /* Không set chiều cao phòng khi nội dung nhiều hơn */
+  border-radius: 12px;
+  border: 1px solid #e8ebee;
+  background: #fff;
+  overflow: hidden;
+  /* Không cho ảnh vượt qua khỏi khung chứa */
+  transition: 0.5s;
+}
+
+.blog-item:hover {
+  box-shadow: 0px 18px 50px 0px rgba(0, 0, 0, 0.05);
+  border-color: transparent;
+}
+
+.blog-item:hover .blog-item__thumb {
+  transform: scale(1.1);
+}
+
+.blog-item__thumb {
+  width: 270px;
+  height: 172px;
+  border-radius: 12px 12px 0px 0px;
+  object-fit: cover;
+  transition: 0.25s;
+}
+
+.blog-item__wrap {
+  height: 172px;
+  overflow: hidden;
+}
+
+.blog-item__body {
+  padding: 18px 22px;
+}
+
+.blog-item__heading {
+  color: #10375c;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.62;
+  /* 162.5% */
+}
+
+.blog-item__desc {
+  margin-top: 10px;
+  color: #575f66;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.72;
+  /* 171.429% */
+}
+
+.blog-item__more {
+  margin-top: 12px;
+  display: inline-block;
+  /* Do thẻ inline margin-top: 12px; bị vô hiệu hóa => Phải set display: inline-block; để khác inline */
+  color: #10375c;
+  font-size: 1.4rem;
+  line-height: normal;
+  transition: 0.25s;
+}
+
+.blog-item__more:hover {
+  color: #2e80ce;
+}
+
+/* =================== Appointment  ===================*/
+.appointment {
+  height: 427px;
+  /* margin: 85px 0; */
+  /* Nhằm tránh margin-bottom bị collapse với khối bên dưới ta sửa lại phần margin như sau */
+  margin-top: 85px;
+}
+
+.appointment__inner {
+  background: #f6fbff;
+  padding: 100px 178px;
+  text-align: center;
+  /* height: 452px; */
+}
+
+.appointment__heading::after {
+  content: "";
+  display: block;
+  width: 136px;
+  height: 2px;
+  background: #2e80ce;
+  margin: 18px auto 0;
+}
+
+.appointment__desc {
+  margin: 18px auto 0;
+  max-width: 617px;
+  color: #575f66;
+  text-align: center;
+  font-family: Sora;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 28px; /* 175% */
+}
+
+.appointment__btn {
+  margin-top: 38px;
+}
+
+/* =================== Footer  ===================*/
+/* Lưu ý: Đã sửa lại thành "margin-top:85px" thay cho "margin: 85px 0;" ở .appointment bên trên rồi */
+/* Do đó ta set margin của .footer = 170px cho giống với thiết kế */
+
+.footer {
+  margin-top: 170px;
+  /* Bản chất của thẻ section là chiếm hết chiều ngang của webpage do đó khi cần giới hạn background-color ta set background-color ở thẻ con trực tiếp của nó VD: .blog__inner, .footer__inner... */
+  /* Hoặc set margin-left và margin-right >= 100px (Đoạn này sai sai cần xem xét lại) sẽ giới hạn được background-color vừa với khung chứa  */
+  padding-top: 100px;
+  background: #10375c;
+  font-family: "Open Sans", sans-serif;
+  /* Viết font-family ở thẻ cha để tất cả thẻ con sẽ thừa kế font Open-sans */
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 0.4fr 0.4fr 1fr;
+  column-gap: 78px;
+  /* column-gap: 78px; làm cho .footer__link dài bị xuống hàng (chiếm 2 hàng) */
+  /* => Dùng white-space: nowrap; ở .footer__link không xuống hàng (ép text thành 1 hàng) */
+}
+
+.footer__desc {
+  margin-top: 21px;
+  color: #a9b3bb;
+  font-size: 1.6rem;
+  line-height: 1.75;
+  /* 175% */
+}
+
+.footer__heading {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.75;
+  /* 175% */
+}
+
+.footer__list {
+  margin: 20px 0 28px;
+}
+
+.footer__link {
+  color: #a9b3bb;
+  font-size: 1.4rem;
+  line-height: 1.86;
+  /* 185.714% */
+  white-space: nowrap;
+  /* column-gap: 78px; làm cho .footer__link dài bị xuống hàng (chiếm 2 hàng) */
+  /* => Dùng white-space: nowrap; ở .footer__link không xuống hàng (ép text thành 1 hàng) */
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+.footer__item {
+  margin-bottom: 10px;
+}
+
+.footer__social {
+  /* margin-top: 20px; */
+  margin: 20px 0 28px;
+  display: flex;
+  column-gap: 10px;
+}
+
+.footer__social-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #2e80ce;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.25s;
+}
+
+.footer__social-btn:hover {
+  background-color: #2e80ce;
+  color: #fff;
+}
+
+.footer-form {
+  display: flex;
+  column-gap: 12px;
+  margin-top: 10px;
+}
+
+.footer-form__input {
+  width: 212px;
+  height: 46px;
+  border-radius: 4px;
+  border: 1px solid #406181;
+  background: transparent;
+  outline: none;
+  color: #fff;
+}
+
+.footer-form__input::placeholder {
+  color: #9ca8b1;
+  font-size: 1.4rem;
+  line-height: 1.86;
+  /* 185.714% */
+}
+
+.footer-form__submit {
+  width: 108px;
+  height: 46px;
+  border-radius: 4px;
+  background: #2e80ce;
+
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.86;
+  /* 185.714% */
+
+  border: none;
+}
+
+.footer-form__submit:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+/* Lúc này kiểm tra lại font chữ của Button thì font-family không phải là "Open-sans" mà là Arial @@, xem video bài 95.12 để sửa lại
+/* =================== Common  ===================
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+/* Lúc này .footer-form__submit sẽ có thể kế thừa font từ cha nó là .footer . Nếu không khai báo inherit nó sẽ có font là Ariel */
+
+.footer__copyright {
+  border-top: 1px solid #406181;
+}
+
+.footer__copyright-text {
+  color: #aab3ba;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 1.86;
+  /* 185.714% */
+  padding: 28px 0 42px;
+}
+/* Bỏ độ cao của thẻ body, kiểm tra lại dự án => Hoàn thiện rồi .^-^. */

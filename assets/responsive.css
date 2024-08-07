@@ -1,0 +1,73 @@
+/* PC */
+@media (min-width: 992px) {
+  /* Tối thiểu là 992px (>= 992) thì áp dụng style này */
+}
+/* Tablet & Mobile */
+@media (max-width: 991.98px) {
+  /* Tối thiểu là 992px (< 992) thì áp dụng style này */
+  .navbar {
+    display: none;
+  }
+  /* 1. Ẩn nav bar trên Tablet & Mobile  */
+  .header-top {
+    position: relative;
+  }
+  .header__logo {
+    position: absolute;
+    /* top: 0; */
+    /* left: 0; */
+    /* Kiểm tra vị trí  tâm của phần tử */
+    left: 50%;
+    translate: -50% -50%;
+    /* Thay đổi vị trí  tâm của phần tử (vào chính giữa phần tử) */
+    /* Kết quả là logo chạy vào giữa .header-top và căn giữa */
+  }
+  /* 2. Chuyển logo vào giữa */
+  .menu-header__icon {
+    /* height: 16px; */
+    width: 24px;
+    position: absolute;
+    /* Không có thẻ tổ tiên gần nhất thì căn theo góc trên cùng (top left corner) */
+    /* top: 0; */
+    /* left: 0; */
+    top: 38px;
+    left: 26px;
+    /* 3. Căn lại vị trí của menu icon */
+    color: #fff;
+    /* Đổi màu .menu-header__icon, lúc này cần thêm <path fill="currentColor"> vào <path> index.html */
+  }
+  .menu-overlay {
+    position: fixed;
+    /* background-color: blue; */
+    background-color: rgba(0, 0, 0, 0.3);
+    inset: 0;
+    z-index: 1;
+    /* Sẽ có phần tử nằm trên overlay nếu không set z-index */
+    opacity: 0;
+    /* Ẩn nhưng vẫn che phần tử bên dưới overlay (không thể click vào phần tử) */
+    visibility: hidden;
+    /* Ẩn hoàn toàn overlay khỏi giao diện, để có thể click vào phần tử bên dưới overlay */
+    /* Bình thường ẩn overlay đi */
+    transition: 0.5s;
+  }
+  /* 4. Overlay */
+  .menu-checkbox:checked ~ .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+  /* Kiểm tra nếu checkbox được check thì hiện overlay */
+}
+/* Tablet */
+@media (max-width: 991.98px) and (min-width: 768px) {
+  /* Tối thiểu là 992px (>= 768 và < 992) thì áp dụng style này */
+}
+/* Mobile */
+@media (max-width: 767.98px) {
+  /* Tối thiểu là 992px (<= 768) thì áp dụng style này */
+}
+.hero,
+.footer,
+main {
+  display: none;
+}
+/* Tạm ẩn phần không liên quan */
