@@ -188,11 +188,38 @@
     width: 90%;
     margin: 0 auto;
   }
+  /* =================== KHỐI MAIN - Blogs ===================*/
+  .blog__inner {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+  .blog__content {
+    order: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .blog__list {
+    order: 1;
+  }
+  .blog__heading {
+    max-width: 100%;
+  }
+  /* Màn hình nên kéo cho width bé hơn 992 một chút thôi nếu không phần heading sẽ hiển thị không giống như video bài 101.6 vào 2:10 */
 }
 
 /* =================== Tablet ===================*/
 @media (max-width: 991.98px) and (min-width: 768px) {
   /* Tối thiểu là 992px (>= 768 và < 992) thì áp dụng style này */
+
+  /* =================== KHỐI MAIN - Footer ===================*/
+  .footer-top {
+    grid-template-columns: 0.5fr 0.5fr 1fr;
+  }
+  .footer-hidden-tablet {
+    display: none;
+  }
 }
 
 /* =================== Mobile ===================*/
@@ -202,7 +229,7 @@
 
 /* .hero, */
 /* main,  */
-.footer {
+/* .footer {
   display: none;
-}
+} */
 /* Tạm ẩn phần không liên quan */
