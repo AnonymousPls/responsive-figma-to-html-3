@@ -142,6 +142,34 @@
   .service__list {
     text-align: center;
   }
+
+  /* =================== KHỐI MAIN - How it works ===================*/
+  .work__list {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+
+  /* =================== KHỐI MAIN - About us ===================*/
+  .about-row {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+  .about__img--small {
+    display: none;
+  }
+
+  .about__media {
+    width: 100%;
+  }
+  .about__img--large {
+    width: 100%;
+    border-radius: 15px;
+    margin: 0 auto 25px;
+  }
+  .about-content {
+    width: 90%;
+    text-align: center;
+  }
 }
 
 /* =================== Tablet ===================*/
