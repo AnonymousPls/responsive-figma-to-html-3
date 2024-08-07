@@ -1,16 +1,16 @@
-/* PC */
+/* =================== PC ===================*/
 @media (min-width: 992px) {
   /* Tối thiểu là 992px (>= 992) thì áp dụng style này */
   .mobile-header {
     display: none;
   }
 }
-/* Tablet & Mobile */
+/* =================== Tablet & Mobile ===================*/
 @media (max-width: 991.98px) {
   /* Tối thiểu là 992px (< 992) thì áp dụng style này */
 
+  /* =================== KHỐI HEADER  ===================*/
   /* =================== Code cho menu-overlay  ===================*/
-
   .navbar {
     display: none;
   }
@@ -67,8 +67,7 @@
   }
   /* 5. Kiểm tra nếu checkbox được check thì hiện overlay */
 
-  /* =================== Code cho menu-drawer  ===================*/
-
+  /* =================== Code cho menu-drawer ===================*/
   .menu-drawer {
     position: fixed;
     background-color: #2e1919;
@@ -110,19 +109,54 @@
   .navbar__link:hover {
     background-color: #00ffff37;
   }
+  /* =================== KHỐI MAIN - Hero ===================*/
+  .hero {
+    flex-direction: column;
+  }
+  .hero__content {
+    order: 2;
+    text-align: center;
+    width: 80%;
+    margin: 22px auto;
+  }
+  .hero__row {
+    justify-content: center;
+  }
+  .hero__media {
+    order: 1;
+  }
+
+  /* =================== KHỐI MAIN - Our services ===================*/
+
+  .service__row {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .service__img {
+    width: 100%;
+  }
+  .service-item {
+    width: 90%;
+    text-align: start;
+  }
+  .service__list {
+    text-align: center;
+  }
 }
 
-/* Tablet */
+/* =================== Tablet ===================*/
 @media (max-width: 991.98px) and (min-width: 768px) {
   /* Tối thiểu là 992px (>= 768 và < 992) thì áp dụng style này */
 }
-/* Mobile */
+
+/* =================== Mobile ===================*/
 @media (max-width: 767.98px) {
   /* Tối thiểu là 992px (<= 768) thì áp dụng style này */
 }
-.hero,
-.footer,
-main {
+
+/* .hero, */
+/* main,  */
+.footer {
   display: none;
 }
 /* Tạm ẩn phần không liên quan */
