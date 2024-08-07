@@ -246,6 +246,7 @@ a {
 .hero__img--small {
   width: 210px;
   height: 410px;
+  /* z-index: 2; */
 }
 
 /* =================== Main ===================*/

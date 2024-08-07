@@ -225,6 +225,24 @@
           const navMobile = document.querySelector("#navbar__list--mobile");
           navMobile.innerHTML = navPC.innerHTML;
         </script>
+        <!-- Ngăn cách với Log In và Sign Up dùng border-top để vẽ -->
+        <div class="separate"></div>
+        <!-- CTA Action -->
+        <!-- <div class="header__action">
+          <a href="#!" class="header__action--login">Log In</a>
+          <a href="#!" class="btn header__action--signup">Sign Up</a>
+        </div> -->
+        <div class="show-on-mobile">
+          <!-- LƯU Ý QUAN TRỌNG: Thẻ ol,ul {list-style: none;} (reset.css) (không có li) -->
+          <!-- => Cần set .navbar__item {list-style-type: none;} để xóa dấu chấm đi -->
+          <!-- Nếu không kích thước của Log In & Sign Up trong menu sẽ bị to ra -->
+          <li class="navbar__item">
+            <a href="#!" class="navbar__link">Log In</a>
+          </li>
+          <li class="navbar__item">
+            <a href="#!" class="navbar__link">Sign Up</a>
+          </li>
+        </div>
       </div>
 
       <!-- Tablet/Mobile Menu -->

@@ -9,8 +9,8 @@
 @media (max-width: 991.98px) {
   /* Tối thiểu là 992px (< 992) thì áp dụng style này */
 
-  /* =================== KHỐI HEADER  ===================*/
-  /* =================== Code cho menu-overlay  ===================*/
+  /* =================== KHỐI HEADER (Tablet & Mobile) ===================*/
+  /* =================== Code cho menu-overlay (Tablet & Mobile)  ===================*/
   .navbar {
     display: none;
   }
@@ -67,7 +67,7 @@
   }
   /* 5. Kiểm tra nếu checkbox được check thì hiện overlay */
 
-  /* =================== Code cho menu-drawer ===================*/
+  /* =================== Code cho menu-drawer (Tablet & Mobile) ===================*/
   .menu-drawer {
     position: fixed;
     background-color: #2e1919;
@@ -109,7 +109,7 @@
   .navbar__link:hover {
     background-color: #00ffff37;
   }
-  /* =================== KHỐI MAIN - Hero ===================*/
+  /* =================== KHỐI MAIN - Hero (Tablet & Mobile) ===================*/
   .hero {
     flex-direction: column;
   }
@@ -126,7 +126,7 @@
     order: 1;
   }
 
-  /* =================== KHỐI MAIN - Our services ===================*/
+  /* =================== KHỐI MAIN - Our services (Tablet & Mobile) ===================*/
 
   .service__row {
     flex-direction: column;
@@ -143,20 +143,20 @@
     text-align: center;
   }
 
-  /* =================== KHỐI MAIN - How it works ===================*/
+  /* =================== KHỐI MAIN - How it works (Tablet & Mobile) ===================*/
   .work__list {
     grid-template-columns: 1fr;
     row-gap: 30px;
   }
 
-  /* =================== KHỐI MAIN - About us ===================*/
+  /* =================== KHỐI MAIN - About us (Tablet & Mobile) ===================*/
   .about-row {
     flex-direction: column;
     row-gap: 30px;
   }
-  .about__img--small {
+  /* .about__img--small {
     display: none;
-  }
+  } */
 
   .about__media {
     width: 100%;
@@ -171,7 +171,7 @@
     text-align: center;
   }
 
-  /* =================== KHỐI MAIN - Team list ===================*/
+  /* =================== KHỐI MAIN - Team list (Tablet & Mobile) ===================*/
   .team__list {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 30px;
@@ -180,7 +180,7 @@
     margin: 0 auto;
     /* Có hay không cũng được vì đã có justify-content: center; ở thẻ cha .team-item__img-bg */
   }
-  /* =================== KHỐI MAIN - Install ===================*/
+  /* =================== KHỐI MAIN - Install (Tablet & Mobile) ===================*/
   .install__img {
     display: none;
   }
@@ -188,7 +188,7 @@
     width: 90%;
     margin: 0 auto;
   }
-  /* =================== KHỐI MAIN - Blogs ===================*/
+  /* =================== KHỐI MAIN - Blogs (Tablet & Mobile) ===================*/
   .blog__inner {
     flex-direction: column;
     row-gap: 30px;
@@ -212,8 +212,11 @@
 /* =================== Tablet ===================*/
 @media (max-width: 991.98px) and (min-width: 768px) {
   /* Tối thiểu là 992px (>= 768 và < 992) thì áp dụng style này */
+  .show-on-mobile {
+    display: none;
+  }
 
-  /* =================== KHỐI MAIN - Footer ===================*/
+  /* =================== KHỐI MAIN - Footer (Tablet) ===================*/
   .footer-top {
     grid-template-columns: 0.5fr 0.5fr 1fr;
   }
@@ -225,10 +228,130 @@
 /* =================== Mobile ===================*/
 @media (max-width: 767.98px) {
   /* Tối thiểu là 992px (<= 768) thì áp dụng style này */
-}
 
+  /* =================== KHỐI HEADER (Mobile) ===================*/
+  .header__action {
+    display: none;
+  }
+  /* Ẩn Log In và Sign Up, thêm .show-on-mobile {display: none;} vào Tablet */
+
+  .menu-header__icon {
+    top: 16px;
+  }
+  /* Chỉnh lại vị trí của icon-menu */
+
+  /* =================== Code cho menu-drawer (Mobile) ===================*/
+  .menu-drawer {
+    inset: 0 20% 0 0;
+    padding: 40px;
+  }
+  .navbar__item {
+    list-style-type: none;
+  }
+  /* Xóa dấu chấm của thẻ li (Log In và Sign Up) */
+  .separate {
+    border-top: 1.5px solid #8c8b8b;
+    margin-top: 10px;
+  }
+  /* Thêm vạch kẻ ngăn cách CTA với Log In và Sign Up)*/
+
+  /* =================== KHỐI MAIN - Hero (Mobile) ===================*/
+  .hero__img--small {
+    display: none;
+  }
+  .hero__img--large {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+  }
+  .hero__heading {
+    font-size: 3rem;
+  }
+  .hero__row {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  /* =================== KHỐI MAIN - Our services (Mobile) ===================*/
+  .service {
+    padding: 70px 0;
+  }
+  .service__desc {
+    width: 93%;
+  }
+  .service__img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* =================== KHỐI MAIN - How it works (Mobile) ===================*/
+  .work__desc {
+    width: 100%;
+  }
+  .work-item {
+    padding: 20px;
+  }
+
+  /* =================== KHỐI MAIN - About us (Mobile) ===================*/
+  .about {
+    margin-top: 20px;
+    padding: 40px 0;
+  }
+  .about__img--small {
+    width: 100%;
+    height: auto;
+    left: 0;
+  }
+  .section-heading {
+    color: #10375c;
+    font-size: 3rem;
+  }
+
+  /* =================== KHỐI MAIN - Team list (Mobile) ===================*/
+  .team__list {
+    grid-template-columns: 1fr;
+  }
+
+  /* =================== KHỐI MAIN - Install (Mobile) ===================*/
+  .install {
+    margin: 40px 0;
+  }
+  .install__inner {
+    padding: 0 8px;
+  }
+  .install__desc {
+    font-size: 1.3rem;
+  }
+  /* =================== KHỐI MAIN - Blogs (Mobile) ===================*/
+  .blog__list {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+  .blog__heading {
+    text-align: center;
+  }
+  .blog {
+    padding: 8px;
+  }
+  /* Lưu ý chỉnh lại padding của .blog nếu không box chứa text sẽ bị thu hẹp đáng kể */
+
+  /* =================== KHỐI MAIN - Appointment (Mobile) ===================*/
+  .appointment__inner {
+    padding: 30px 5px;
+  }
+
+  /* =================== KHỐI MAIN - Footer (Mobile) ===================*/
+  .footer-top {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+  .footer__copyright {
+    margin-top: 20px;
+  }
+}
+/* =================== Done !!! ===================*/
 /* .hero, */
-/* main,  */
+/* main, */
 /* .footer {
   display: none;
 } */
